@@ -1,0 +1,1 @@
+<?php echo"Virtual Bet"; ?>
