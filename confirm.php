@@ -1,5 +1,5 @@
 <?php 
-	echo $_POST['name'];
+	echo "You'r name is $_POST['name']";
 	echo '<br>';
-	echo $_POST['secondName'];
+	echo "You'r lastname is $_POST['secondName']";
 ?>
