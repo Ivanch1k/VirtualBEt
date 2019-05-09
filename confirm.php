@@ -32,7 +32,7 @@ else if($_GET['type'] == 'reg'){
 		$nextNumber = pg_query($link, $sql) + 1;
 		$sql = "insert into test_table (id, login, password) values(" . $nextNumber . ", " . $_GET['login'] . ", " . $_GET['password'] . ")";
 		$result = pg_query($link, $sql);
-		$sql = "select login from test_table where id = 3";
+		$sql = "select login from test_table";
 		
 		$result = pg_query($link, $sql);
 		$res = pg_fetch_all($result);
