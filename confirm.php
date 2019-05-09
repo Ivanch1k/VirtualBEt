@@ -30,6 +30,7 @@ else if($_GET['type'] == 'reg'){
 	if($_GET['login'] != '' && $_GET['password'] != ''){
 		$sql = "select MAX(id) from test_table group by id";
 		$nextNumber = pg_query($link, $sql) + 1;
+		echo $nextNumber;
 		$sql = "insert into test_table (id, login, password) values($nextNumber, '{$_GET['login']}', '{$_GET['password']}')";
 		$result = pg_query($link, $sql);	
 		$res = pg_fetch_all($result);
