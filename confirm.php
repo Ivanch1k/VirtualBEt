@@ -3,7 +3,7 @@
 	$link = pg_connect(getenv("DATABASE_URL"));
 	
 	if($link == 0){
-		echo'Cannot connect to database';
+		echo'Cannot connect to database;';
 		return;
 	}
 	
