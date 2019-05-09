@@ -11,11 +11,15 @@
 	$Finded = false;
 	foreach($res as $a){
 		if($a['login'] == $_GET['login']){
-			echo 'Glade to see you again!';
-			$Finded =  true;
+			if($a['password'] == $_GET['password']){
+				echo "Glade to see you again, $_GET['login']!";
+				$Finded =  true;
+			}else{
+				echo 'Oops. Passwodr is incorrect.';		
+			}
 		}
 	}
 	if(!$Finded){
-		echo "We don't meet before";
+		echo "We don't meet before, $_GET['login']";
 	}
 ?>
