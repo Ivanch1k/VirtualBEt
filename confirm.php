@@ -31,7 +31,10 @@ else if($_GET['type'] == 'reg'){
 		$sql = "select MAX(id) from test_table group by id";
 		$nextNumber = pg_query($link, $sql) + 1;
 		$sql = "insert into test_table values(" . $nextNumber . ", " . $_GET['login'] . ", " . $_GET['password'] . ")";
+		echo $sql;
 		$result = pg_query($link, $sql);
+		echo "Welcome to our site!";
 	}
+	echo "Login or passwort are empty";
 }
 ?>
