@@ -3,8 +3,8 @@
 </header>
 <body>
 	<form method="GET" action="\confirm.php">
-	<input type="input" name="name"><br>
-	<input type="input" name="secondName"><br>
+	<input type="input" name="login"><br>
+	<input type="input" name="password"><br>
 	<input type="submit">
 	</form>
 </body>
