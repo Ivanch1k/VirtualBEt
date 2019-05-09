@@ -20,6 +20,6 @@
 		}
 	}
 	if(!$Finded){
-		echo "We don't meet before, $_GET['login']";
+		echo "We don\'t meet before, $_GET[\'login\']";
 	}
 ?>
