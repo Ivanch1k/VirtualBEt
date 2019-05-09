@@ -35,7 +35,8 @@ else if($_GET['type'] == 'reg'){
 		$sql = "select login from test_table where id = 3";
 		
 		$result = pg_query($link, $sql);
-		var_dump($result);
+		$res = pg_fetch_all($result);
+		var_dump($res);
 		echo "Welcome to our site!";
 	}
 	else{
