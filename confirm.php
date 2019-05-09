@@ -6,8 +6,6 @@
 		return;
 	}
 
-	$sql = "insert into test_table values(2, 'Ivanchik', '1234')";
-	pg_query($link, $sql);
 	$sql = "select all from test_table";
 	$result = pg_query($link, $sql);
 	
