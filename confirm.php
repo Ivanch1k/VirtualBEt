@@ -15,7 +15,8 @@
 				echo "Glade to see you again, " . $_GET['login'] . "!";
 				$Finded =  true;
 			}else{
-				echo 'Oops. Passwodr is incorrect.';		
+				echo 'Oops. Passwodr is incorrect.';
+				$Finded = true;
 			}
 		}
 	}
