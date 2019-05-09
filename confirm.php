@@ -35,6 +35,8 @@ else if($_GET['type'] == 'reg'){
 		$result = pg_query($link, $sql);
 		echo "Welcome to our site!";
 	}
-	echo "Login or passwort are empty";
+	else{
+		echo "Login or passwort are empty";
+	}
 }
 ?>
