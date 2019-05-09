@@ -6,7 +6,7 @@
 		return;
 	}
 
-	$sql = "select all from test_table";
+	$sql = "select * from test_table";
 	$result = pg_query($link, $sql);
 	
 	$res = pg_fetch_all($result);
