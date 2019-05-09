@@ -33,7 +33,7 @@ else if($_GET['type'] == 'reg'){
 		$sql = "insert into test_table values(" . $nextNumber . ", " . $_GET['login'] . ", " . $_GET['password'] . ")";
 		
 		$result = pg_query($link, $sql);
-		echo $result;
+		print_r($result);
 		echo "Welcome to our site!";
 	}
 	else{
