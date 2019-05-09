@@ -10,6 +10,6 @@
 	$result = pg_query($link, $sql);
 	
 	$res = pg_fetch_all($result);
-	print_r($res);
+	print_r($res[0]);
 	print_r($result);
 ?>
