@@ -8,13 +8,14 @@
 	$sql = "select * from test_table";
 	$result = pg_query($link, $sql);
 	$res = pg_fetch_all($result);
-	
+	$Finded = false;
 	foreach($res as $a){
 		if($a['login'] == $_GET['login']){
 			echo 'Glade to see you again!';
+			$Finded =  true;
 		}
 	}
-	else{
+	if(!$Finded){
 		echo "We don't meet before";
 	}
 ?>
