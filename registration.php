@@ -1,5 +1,5 @@
 <body>
-  <form Method="GET" action="\confrim.php">
+  <form method="GET" action="\confrim.php">
     <input type="text" name="login">
     <input type="text" name="password">
     <input type="submit">
