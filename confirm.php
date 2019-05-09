@@ -10,5 +10,5 @@
 	$sql = "select all from test_table";
 	$result = pg_query($link, $sql);
 	$res = pg_fetch_all($result);
-	echo $result['login'];
+	var_dump($res);
 ?>
