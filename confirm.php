@@ -2,7 +2,7 @@
 	$link = 0;
 	$link = pg_connect(getenv("DATABASE_URL"));
 	
-	print_r($link);	
+	var_dump($link);	
 
 	$sql = "select all from test_table;";
 	$result = pg_query($link, $sql);
