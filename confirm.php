@@ -9,6 +9,6 @@
 	
 	$sql = "select all from test_table";
 	$result = pg_query($link, $sql);
-	$res = pg_fetch_all($result, 1);
-	echo $res['login'];
+	$res = pg_fetch_all($result);
+	echo $result['login'];
 ?>
