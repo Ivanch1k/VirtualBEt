@@ -31,10 +31,7 @@ else if($_GET['type'] == 'reg'){
 		$sql = "select MAX(id) from test_table group by id";
 		$nextNumber = pg_query($link, $sql) + 1;
 		$sql = "insert into test_table (id, login, password) values($nextNumber, '{'$_GET['login']'}', '{'$_GET['password']'}')";
-		$result = pg_query($link, $sql);
-		$sql = "select login from test_table";
-		
-		$result = pg_query($link, $sql);
+		$result = pg_query($link, $sql);	
 		$res = pg_fetch_all($result);
 		var_dump($res);
 		echo "Welcome to our site!";
