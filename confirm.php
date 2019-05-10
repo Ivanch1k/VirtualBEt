@@ -29,15 +29,13 @@ if($_GET['type'] == 'login'){
 else if($_GET['type'] == 'reg'){
 	if($_GET['login'] != '' && $_GET['password'] != ''){
 		$sql = "select MAX(id) from test_table";
-		$nextNumber = pg_fetch_all(pg_query($link, $sql));
-		$nextNumber = $nextNumber[0][0];
-		echo $nextNumber;
-		$nextNumber += 1;
-		$sql = "insert into test_table (id, login, password) values($nextNumber, '{$_GET['login']}', '{$_GET['password']}')";
+		$nextNumber = pg_query($link, $sql);
+		echo var_dump($nextNumber);
+		/* $sql = "insert into test_table (id, login, password) values($nextNumber, '{$_GET['login']}', '{$_GET['password']}')";
 		$result = pg_query($link, $sql);	
 		$res = pg_fetch_all($result);
 		var_dump($res);
-		echo "Welcome to our site!";
+		echo "Welcome to our site!"; */
 	}
 	else{
 		echo "Login or password are empty";
