@@ -34,7 +34,6 @@ else if($_GET['type'] == 'reg'){
 		$sql = "insert into test_table (id, login, password) values($nextNumber, '{$_GET['login']}', '{$_GET['password']}')";
 		$result = pg_query($link, $sql);	
 		$res = pg_fetch_all($result);
-		var_dump($res);
 		echo "Welcome to our site!";
 	}
 	else{
