@@ -30,12 +30,12 @@ else if($_GET['type'] == 'reg'){
 	if($_GET['login'] != '' && $_GET['password'] != ''){
 		$sql = "select MAX(id) from test_table";
 		$nextNumber = pg_fetch_all(pg_query($link, $sql), 1);
-		echo $nextNumber[0]['max'];
-		/* $sql = "insert into test_table (id, login, password) values($nextNumber, '{$_GET['login']}', '{$_GET['password']}')";
+		$nextNumber = $nextNumber[0]['max'] + 1;
+		$sql = "insert into test_table (id, login, password) values($nextNumber, '{$_GET['login']}', '{$_GET['password']}')";
 		$result = pg_query($link, $sql);	
 		$res = pg_fetch_all($result);
 		var_dump($res);
-		echo "Welcome to our site!"; */
+		echo "Welcome to our site!";
 	}
 	else{
 		echo "Login or password are empty";
