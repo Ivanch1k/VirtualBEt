@@ -1,6 +1,6 @@
 <?php 
+  $i = 0;
   while(true){
-    $i = 0;
     echo $i++;
   }
 ?>
