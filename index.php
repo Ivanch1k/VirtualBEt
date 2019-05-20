@@ -1,6 +1,5 @@
-<?php 
-  $i = 0;
-  while(true){
-    echo $i++;
-  }
-?>
+<header>
+</header>
+<body>
+  <a heref="index.html">Home</a>
+</body>
