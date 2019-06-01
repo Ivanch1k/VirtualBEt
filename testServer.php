@@ -6,7 +6,7 @@
 	}
 	
 	if($_GET['action'] != null){	
-		if($_GET['action'] == 'SeyHello'){
+		if($_GET['action'] == 'SayHello'){
 			print(json_encode("Hello"));
 		}
 	}
