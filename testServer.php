@@ -1,14 +1,13 @@
 <?php
-	$link = pg_connect(getenv("DATABASE_URL"));
-	if($link == false){
-		echo'Fault connection';
-		return;
+	if($_SERVER['REQUEST_METHOD'] == 'POST'){
+		$login = $_POST['login'];
+		$passwodr = $_POST['password'];
+		
+		$password = password_hash($passwodr, PASSWORD_DEFAULT);
+		
+		$result["success"] = "1";
+		$result["message"] = "Finnaly Hello";
+		
+		echo json_encode($result);
 	}
-	
-	if($_GET['action'] != null){	
-		if($_GET['action'] == 'SayHello'){
-			print(json_encode("Hello"));
-		}
-	}
-	
 ?>
