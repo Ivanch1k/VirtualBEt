@@ -8,6 +8,8 @@
 		$result["success"] = "1";
 		$result["message"] = "Finnaly Hello";
 		
+		echo "Hello!";
+		
 		echo json_encode($result);
 	}
 ?>
