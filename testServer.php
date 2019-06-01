@@ -7,7 +7,7 @@
 	
 	if($_GET['action'] != null){	
 		if($_GET['action'] == 'SeyHello'){
-			echo('Hello');
+			print(json_encode("Hello"));
 		}
 	}
 	
