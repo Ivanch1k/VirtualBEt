@@ -1,5 +1,5 @@
 <?php	
-	if(_GET['login'] == "Admin"){
+	if(_GET['login'] == 1){
 		$result["login"] = "Admin";
 		$result["password"] = "It's work!!!";
 	} else if(_GET['login'] == "Neadmin"){
