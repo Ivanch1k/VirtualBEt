@@ -1,8 +1,8 @@
 <?php	
-	if($_GET['login'] == 'Admin'){
+	if($_GET['login'] == 'Admin' && $_GET['password'] == '1423'){
 		$result["login"] = "Admin";
-		$result["password"] = "It's work!!!";
-	} else if($_GET['login'] == 'Neadmin'){
+		$result["password"] = "1423";
+	} else if($_GET['login'] == '123'){
 		$result["login"] = "Admin";
 		$result["password"] = "It's work tooo!!!";
 	}
