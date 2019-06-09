@@ -1,0 +1,85 @@
+.main {
+    height: 2000px;
+}
+
+.cont {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 20px 20px;
+    background-color: #224377;
+}
+
+.main-match {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.matchDiv,.matchDivLive {
+    display: inline-block;
+    padding: 20px;
+
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.matchDiv:hover {
+    background-color: #EBF2FE;
+}
+
+.champ-list {
+    background-color: #fff;
+    white-space: nowrap;
+    border: 1px solid #397CF6;
+    border-radius: 8px;
+}
+
+.sidebar {
+    float: right;
+}
+
+.sidebar.fixed {
+    position: fixed;
+    right: 0%;
+}
+
+.champLi {
+    border-bottom: .2px #C3CDE0 solid;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.champ-headline {
+    text-align: center;
+    border-bottom: .2px #C3CDE0 solid;
+}
+
+.champ-href {
+    color: black;
+    font-weight: bold;
+}
+
+.champ-href:hover {
+    color: #3179FD;
+}
+
+.match-href {
+    white-space: nowrap;
+    color: #1E375C;
+    font-size: 20px;
+}
+
+.match-href:hover {
+    color: #1E375C;
+}
+
+.lul {
+    min-width: 280px;
+    min-height: 300px;
+    width: 450px;
+    height: 310px;
+    background-color: #fff;
+}

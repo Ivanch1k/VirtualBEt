@@ -1,0 +1,25 @@
+.match-logo {
+    display: flex;
+    justify-content: space-around;
+}
+
+.matchInfo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.match-btns {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.matchBetWin {
+    text-align: center;
+}
+
+.matchBetTotal {
+    text-align: center;
+}

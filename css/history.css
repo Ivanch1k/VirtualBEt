@@ -1,0 +1,86 @@
+.couponDiv{
+    width: 70%;
+    height: 100px;
+    background-color: #3F3E40;
+    border: black 2px solid;
+}
+.couponDivContent{
+    float: left;
+    margin-right: 50px;
+    width: 150px;
+    font-size: 17px;
+}
+.firstRowCoupon{
+    color: #E8E835;
+}
+.secondRowCoupon{
+    color: #FFFFFF;
+}
+.notResultCef{
+    float: left;
+    margin-right: 40px;
+    width: 100px;
+    height: 70px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 12px;
+    font-size: 25px;
+}
+.badResultCef{
+    float: left;
+    margin-right: 40px;
+    width: 100px;
+    height: 70px;
+    background-color: #FF3333;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 12px;
+    font-size: 25px;
+}
+.goodResultCef{
+    float: left;
+    margin-right: 40px;
+    width: 100px;
+    height: 70px;
+    background-color: #61E19F;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 12px;
+    font-size: 25px;
+}
+.arrow{
+    float: left;
+    color: #FFFFFF;
+    font-size: 50px;
+    cursor: pointer;
+}
+.matchesInHistory{
+    width: 70%;
+    background-color: #FFFF33;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: none;
+}
+.infoMatchHistory{
+    width: 95%;
+    height: 100px;
+    margin: 10px;
+    background-color: #FFFF33;
+    border: #797979 2px solid;
+}
+.couponDetailInfo{
+    float: left;
+    margin-right: 50px;
+    width: 250px;
+    font-size: 15px;
+}
+.couponResultInfo{
+    float: left;
+    margin-right: 50px;
+    width: 150px;
+    font-size: 15px;
+}

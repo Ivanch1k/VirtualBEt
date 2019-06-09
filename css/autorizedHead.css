@@ -1,0 +1,30 @@
+.header {
+    background-color: #224377;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-logo {
+    padding: 10px 100px 10px 10px;
+}
+
+.head-main-btn {
+    display: flex;
+    padding: 1%;
+}
+
+
+.main-btn {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.headerBtn{
+    max-height: 100%;
+    white-space: nowrap;
+}

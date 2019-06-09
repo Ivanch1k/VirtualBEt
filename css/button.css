@@ -1,0 +1,70 @@
+.btn-come-in {
+    border: 0;
+    outline: medium;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3179fd;
+    border-radius: 2px;
+    white-space: nowrap;
+    padding: 0 5px;
+    text-align: center;
+    cursor: pointer;
+    font-style: normal;
+    font-stretch: normal;
+    height: 32px;
+    line-height: 32px;
+    font-size: 20px;
+    margin-right: 4px;
+    width: 88px;
+    font-weight: 600;
+    box-shadow: 0px 5px 0px #0059FF;
+    position: relative;
+    top: 0px;
+    transition: all ease 0.3s;
+}
+
+.btn-come-in:active {
+    box-shadow: 0 3px 0 #0059FF;
+    top: 3px;
+}
+
+.btn-regestration {
+    border: 0;
+    outline: medium;
+    text-decoration: none;
+    color: #fff;
+    background-color: #42b73d;;
+    border-radius: 2px;
+    white-space: nowrap;
+    padding: 0 5px;
+    text-align: center;
+    cursor: pointer;
+    font-style: normal;
+    font-stretch: normal;
+    height: 32px;
+    line-height: 32px;
+    font-size: 20px;
+    margin-right: 4px;
+    width: 156px;
+    font-weight: 600;
+    box-shadow: 0px 5px 0px #00823F;
+    position: relative;
+    top: 0px;
+    transition: all ease 0.3s;
+}
+
+.btn-regestration:active {
+    box-shadow: 0 3px 0 #00823F;
+    top: 3px;
+}
+
+.btn-list {
+    display: flex;
+}
+
+.btn-item {
+    font-family: Roboto,sans-serif;
+    padding-right: 10px;
+    cursor: pointer;
+    color: #fff;
+}
