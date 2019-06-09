@@ -1,16 +1,18 @@
 <?php
 session_start();
 
-$mysql = new mysqli("localhost","root","","virtualbet");
-if ($mysql->connect_errno) {
-printf("Не удалось подключиться: %s\n", $mysql->connect_error);
+$link = pg_connect(getenv("DATABASE_URL"));
+
+if (!$link) {
+printf("Не удалось подключиться: %s\n");
 exit();
 }
+$response = pg_query($link, $sql);
 $mysql->query("SET NAMES 'utf-8");
 
 function getMatch( $id){
     global $mysql;
-    $match = $mysql->query("SELECT * FROM match1 WHERE Id = '$id'");
+    $match = pg_query($link, "SELECT * FROM match1 WHERE Id = '$id'");
     foreach ($match as $single){
         return $single;
     }
