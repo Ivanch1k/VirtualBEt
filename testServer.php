@@ -15,7 +15,7 @@
 		
 		echo json_encode($result[0]);
 		
-	} else if($_GET['action'] == 'mathes'){
+	} else if($_GET['action'] == 'matches'){
 		$sql = "select * from match1";
 		
 		$response = pg_query($link, $sql);
