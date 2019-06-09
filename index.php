@@ -17,7 +17,8 @@
 	} else if($_GET['action'] == 'matches'){
 		$sql = "select * from matches";
 		$response = pg_query($link, $sql);
-		echo $response;
+		$result = pg_fetch_all($response);
+		echo $result;
 	}
 	echo '--------------------------';
 	echo json_encode($result);
