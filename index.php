@@ -27,25 +27,25 @@ if (isset($_GET['champ'])) {
                 <li class="champLi" id="champWorldTov">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/cy.svg" class="flag" width="23px"><a
                             style="text-decoration: none;" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=WorldTov">МИР:
+                            href="http://localhost/dashboard/virtualBet/index.php?champ=WorldTov">МИР:
                         Международные товарищеские матчи</a>
                 </li>
                 <li class="champLi" id="champWorldClub">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/cy.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=WorldClub">МИР:
+                            href="http://localhost/dashboard/virtualBet/index.php?champ=WorldClub">МИР:
                         Клубные товарищеские матчи</a>
                 </li>
                 <li class="champLi" id="champEngland">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/gb.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=England">АНГЛИЯ:
+                            href="http://localhost/dashboard/virtualBet/index.php?champ=England">АНГЛИЯ:
                         Премьер-лига</a>
                 </li>
                 <li class="champLi" id="champGermany">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/de.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=Germany">ГЕРМАНИЯ:
+                            href="http://localhost/dashboard/virtualBet/index.php?champ=Germany">ГЕРМАНИЯ:
                         Бундеслига</a>
                 </li>
 
