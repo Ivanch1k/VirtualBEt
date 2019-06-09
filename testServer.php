@@ -1,13 +1,15 @@
 <?php	
-	$result["status"] = "fail";
-	if($_GET['login'] == 'Admin' && $_GET['password'] == '1423'){
-		$result["status"] = "success";
-		$result["login"] = "Admin";
-		$result["password"] = "1423";
-	} else if($_GET['login'] == '123'){
-		$result["status"] = "success";
-		$result["login"] = "Admin";
-		$result["password"] = "It's work tooo!!!";
+	$link = pg_connect(getenv("DATABASE_URL"));
+	if($link == false){
+		echo json_encode('status=connection_failed');
+		return;
+	} else if($_GET['action'] == 'login'{
+		$sql = "select * from client where Mail=".$_GET['login']." and Pass=".$_GET['password'];
+		
+		$response = pg_query($link, $sql);
+		if($response != ''){
+			$result = 
+			echo $response;
 	}
 	echo json_encode($result);
 ?>
