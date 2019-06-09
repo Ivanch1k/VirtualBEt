@@ -9,7 +9,9 @@
 		$response = pg_query($link, $sql);
 		if($response != ''){
 			$result = pg_fetch_all($response);
-		} 
+		} else {
+			echo 'empty';
+		}
 	}
 	echo json_encode($result);
 ?>
