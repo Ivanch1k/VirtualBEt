@@ -7,8 +7,7 @@ if (!$link) {
 printf("Не удалось подключиться: %s\n");
 exit();
 }
-$response = pg_query($link, $sql);
-$mysql->query("SET NAMES 'utf-8");
+$response = pg_query($link, "SET NAMES 'utf-8");
 
 function getMatch( $id){
     global $mysql;
