@@ -24,7 +24,7 @@
 		} else {
 			//echo 'empty';
 		}		
-		echo json_encode($result[0]);
+		echo json_encode($result);
 	}
 	
 ?>
