@@ -8,8 +8,8 @@
 		
 		$response = pg_query($link, $sql);
 		if($response != ''){
-			$result = 
-			echo $response;
+			$result = pg_fetch_all($response);
+		} 
 	}
 	echo json_encode($result);
 ?>
