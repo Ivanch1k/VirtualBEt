@@ -1,8 +1,9 @@
-<body>
-  <form method="GET" action="\confirm.php">
-    <input type="text" name="login">
-    <input type="text" name="password">
-    <input type="text" name="type" value="reg" style="display: none">
-    <input type="submit">
-  </form>
-</body>
+$mysql = pg_connect(getenv("DATABASE_URL"));
+    $results = pg_fetch_all(pq_query($mysql,"SELECT * FROM client;"));
+    $user = false;
+    foreach ($results as $result){
+        echo($result);
+        if($result['Mail'] == $email && $result['Pass'] == "$pass"){
+            $user = true;
+        }
+    }
