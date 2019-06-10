@@ -1,3 +1,4 @@
+<?php
 $mysql = pg_connect(getenv("DATABASE_URL"));
     $results = pg_fetch_all(pq_query($mysql,"SELECT * FROM client;"));
     $user = false;
@@ -7,3 +8,4 @@ $mysql = pg_connect(getenv("DATABASE_URL"));
             $user = true;
         }
     }
+?>
