@@ -11,6 +11,20 @@
 		if($response != ''){
 			$result = pg_fetch_all($response);
 		} 
+	} else if($_GET['action'] == 'regestration'){
+		$sql = "select * from client where Mail='".$_GET['login']."' and Pass='".$_GET['password']."';";
+		$response = pg_query($link, $sql);
+		if($response == ""){
+			$sql = "insert into client values('".$_GET['name']."', '".$_GET['surname']."', '".$_GET['dateOfBirth']."', '".$_GET['login']."', '".$_GET['password']."');";
+			$response = pg_query($link, $sql);
+			if(!$response){
+				echo '{"status":"0"}';
+				return;
+			}
+		} else {
+			echo '{"status":"1"}';
+			return;
+		}
 	}
 	echo json_encode($result[0]);
 ?>
