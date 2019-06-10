@@ -12,7 +12,7 @@ $email = $_POST['email'];
 $pass = md5($_POST['pass']);
 if($email != 'ogteam'&& $pass !='123456') {
     $mysql = pg_connect(getenv("DATABASE_URL"));
-    $result = pq_query($mysql,"SELECT * FROM client;");
+    $result = pg_fetch_all(pq_query($mysql,"SELECT * FROM client;"));
 
     $user = match($result, $email, $pass);
     if ($user != false) {
