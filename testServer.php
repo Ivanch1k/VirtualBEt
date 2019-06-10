@@ -14,7 +14,7 @@
 	} else if($_GET['action'] == 'regestration'){
 		$sql = "select * from client where Mail='".$_GET['login']."' and Pass='".$_GET['password']."';";
 		$response = pg_query($link, $sql);
-		if($response == ""){
+		if($response == "[]"){
 			$sql = "insert into client values('".$_GET['name']."', '".$_GET['surname']."', '".$_GET['dateOfBirth']."', '".$_GET['login']."', '".$_GET['password']."');";
 			$response = pg_query($link, $sql);
 			if(!$response){
