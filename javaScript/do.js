@@ -173,6 +173,7 @@ $("#sendAutoBtn").on('click',function () {
         cache: false,
         data: {'email' : email, 'pass': pass},
         beforeSend: function () {
+            alert("hkeu");
             $("#sendAutoBtn").prop("disabled",true);
         },
         success:function (data) {
