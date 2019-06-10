@@ -2,4 +2,4 @@
 session_start();
 unset($_SESSION["loggedUser"]);
 
-header("Location: http://localhost/dashboard/virtualBet/main.php");
+header("Location: https://virtualbet.herokuapp.com/index.php");

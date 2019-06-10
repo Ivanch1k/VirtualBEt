@@ -12,7 +12,7 @@ function onSignIn(googleUser) {
         cache: false,
         data: {'name' : name,'secondName' : secondName,'mail' : mail,},
         success:function (data) {
-            document.location.href ="main.php";
+            document.location.href ="index.php";
         }
     });
 }

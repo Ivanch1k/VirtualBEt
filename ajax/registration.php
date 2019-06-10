@@ -35,7 +35,7 @@ if($emailCounter > 0){
     } else {
         $result = pq_query($mysql,"INSERT INTO client(Name, SecondName, DateOfBirth, Mail, Pass, Balance) VALUES('$name','$secondName','$date','$email','$pass',300);");
     }
-    echo"http://localhost/dashboard/virtualBet/main.php";
+    echo"https://virtualbet.herokuapp.com/index.php";
 }
 
 ?>

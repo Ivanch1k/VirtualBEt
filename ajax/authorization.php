@@ -17,14 +17,12 @@ if($email != 'ogteam'&& $pass !='123456') {
     $user = match($result, $email, $pass);
     if ($user != false) {
         $_SESSION["loggedUser"] = $user;
-        echo "http://localhost/dashboard/virtualBet/main.php";
+        echo "https://virtualbet.herokuapp.com/index.php";
     } else {
         echo "false";
     }
 }else{
     echo "
-    
-    
     admin.php";
 }
 

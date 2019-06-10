@@ -27,45 +27,45 @@ if (isset($_GET['champ'])) {
                 <li class="champLi" id="champWorldTov">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/cy.svg" class="flag" width="23px"><a
                             style="text-decoration: none;" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=WorldTov">МИР:
+                            href="https://virtualbet.herokuapp.com/index.php?champ=WorldTov">МИР:
                         Международные товарищеские матчи</a>
                 </li>
                 <li class="champLi" id="champWorldClub">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/cy.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=WorldClub">МИР:
+                            href="https://virtualbet.herokuapp.com/index.php?champ=WorldClub">МИР:
                         Клубные товарищеские матчи</a>
                 </li>
                 <li class="champLi" id="champEngland">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/gb.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=England">АНГЛИЯ:
+                            href="https://virtualbet.herokuapp.com/index.php?champ=England">АНГЛИЯ:
                         Премьер-лига</a>
                 </li>
                 <li class="champLi" id="champGermany">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/de.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=Germany">ГЕРМАНИЯ:
+                            href="https://virtualbet.herokuapp.com/index.php?champ=Germany">ГЕРМАНИЯ:
                         Бундеслига</a>
                 </li>
 
                 <li class="champLi" id="champSpain">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/es.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=Spain">ИСПАНИЯ:
+                            href="https://virtualbet.herokuapp.com/index.php?champ=Spain">ИСПАНИЯ:
                         Примера</a>
                 </li>
                 <li class="champLi" id="champItaly">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/it.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=Italy">ИТАЛИЯ:
+                            href="https://virtualbet.herokuapp.com/index.php?champ=Italy">ИТАЛИЯ:
                         Серия А</a>
                 </li>
 
                 <li class="champLi" id="champFrance">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/mq.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/main.php?champ=France">ФРАНЦИЯ:
+                            href="https://virtualbet.herokuapp.com/index.php?champ=France">ФРАНЦИЯ:
                         Первая лига</a>
                 </li>
             </ul>

@@ -254,26 +254,26 @@ $("#setMatchBtn").on('click',function () {
 
 //переходы на хедере
 $('#liveBtn').on('click',function () {
-    document.location.href = 'http://localhost/dashboard/virtualBet/live.php';
+    document.location.href = 'https://virtualbet.herokuapp.com/live.php';
 })
 $('#mainBtn').on('click',function () {
-    document.location.href = 'http://localhost/dashboard/virtualBet/main.php';
+    document.location.href = '../index.php';
 })
 
 // Переход на страницу матча
 $('.matchDiv').on('click',function () {
     let id =  this.id;
-    document.location.href = 'http://localhost/dashboard/virtualBet/match.php?id=' + id;
+    document.location.href = 'https://virtualbet.herokuapp.com/match.php?id=' + id;
 });
 
 $('.matchDivLive').on('click',function () {
     let id =  this.id;
-    document.location.href = 'http://localhost/dashboard/virtualBet/matchLive.php?id=' + id;
+    document.location.href = 'https://virtualbet.herokuapp.com/matchLive.php?id=' + id;
 });
 // Переход на страницу матча LIVE !!!!
 $('.matchDivLive').on('click',function () {
     let id =  this.id;
-    document.location.href = 'http://localhost/dashboard/virtualBet/matchLive.php?id=' + id;
+    document.location.href = 'https://virtualbet.herokuapp.com/matchLive.php?id=' + id;
 });
 
 
@@ -392,7 +392,7 @@ function doBet() {
             }else{
                 localStorage.clear();
                 $(".betDiv").empty();
-                document.location.href = 'http://localhost/dashboard/virtualBet/main.php';
+                document.location.href = 'https://virtualbet.herokuapp.com/index.php';
             }
             $(".doBetBtn").prop("disabled",false);
         }

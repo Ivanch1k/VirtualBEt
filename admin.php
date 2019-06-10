@@ -24,8 +24,8 @@
     <span>TM35  </span><input id="matchTM35" class="formReg" type="text" name="TM35" placeholder="TM35"></br>
     <button type="button" id="setMatchBtn">Отправить</button>
 </br></br></br>
-<a href="getWinner.php"> Проверить купоны</a>
-    <a href="parser.php"> Обновить матчи</a>
+<a href="https://virtualbet.herokuapp.com/getWinner.php"> Проверить купоны</a>
+    <a href="https://virtualbet.herokuapp.com/parser.php"> Обновить матчи</a>
 </form>
 <?php
 require 'footer.php';
