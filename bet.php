@@ -1,2 +1,4 @@
-<div class="betDiv">
+<div class="cont-betDiv">
+    <div class="betDiv">
+    </div>
 </div>

@@ -15,7 +15,7 @@ $champ = false;
 if (isset($_GET['champ'])) {
     $champ = getChamp($_GET['champ']);
     if ($champ) {
-        $matches = $mysql->query("SELECT * FROM match1 WHERE Championship = '$champ' AND Stat = 0");
+        $matches = pq_query($mysql,"SELECT * FROM match1 WHERE Championship = '$champ' AND Stat = 0");
     }
 }
 ?>
@@ -27,25 +27,25 @@ if (isset($_GET['champ'])) {
                 <li class="champLi" id="champWorldTov">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/cy.svg" class="flag" width="23px"><a
                             style="text-decoration: none;" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/index.php?champ=WorldTov">МИР:
+                            href="http://localhost/dashboard/virtualBet/main.php?champ=WorldTov">МИР:
                         Международные товарищеские матчи</a>
                 </li>
                 <li class="champLi" id="champWorldClub">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/cy.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/index.php?champ=WorldClub">МИР:
+                            href="http://localhost/dashboard/virtualBet/main.php?champ=WorldClub">МИР:
                         Клубные товарищеские матчи</a>
                 </li>
                 <li class="champLi" id="champEngland">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/gb.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/index.php?champ=England">АНГЛИЯ:
+                            href="http://localhost/dashboard/virtualBet/main.php?champ=England">АНГЛИЯ:
                         Премьер-лига</a>
                 </li>
                 <li class="champLi" id="champGermany">
                     <img src="https://lipis.github.io/flag-icon-css/flags/4x3/de.svg" class="flag" width="23px"><a
                             style="text-decoration: none" class="champ-href"
-                            href="http://localhost/dashboard/virtualBet/index.php?champ=Germany">ГЕРМАНИЯ:
+                            href="http://localhost/dashboard/virtualBet/main.php?champ=Germany">ГЕРМАНИЯ:
                         Бундеслига</a>
                 </li>
 
@@ -72,22 +72,26 @@ if (isset($_GET['champ'])) {
         </div>
 
         <div id="matchesDiv" class="main-match">
+            <div class="text-matches">
+                <p>Матчи</p>
+            </div>
             <?php
             if ($champ != false):
                 foreach ($matches as $match):
                     ?>
                     <div class="matchDiv" id="<?php echo $match['Id'] ?>">
-                        <a class="match-href" style="text-decoration: none">
+                        <p class="match-date">
+                            <?php
+                            $date = $match['DateAndTime'];
+                            $time = date("m-d H:i", strtotime($date));
+                            echo $time;
+                            ?>
+                        </p>
+                        <a class="match-href" style="text-decoration: none; color: #336FB2;">
                             <p><?php echo $match['Team1']?></p>
-                            --
+                            <span>&#8194;&mdash;&#8194;</span>
                             <p><?php echo $match['Team2']?></p>
-                            <p>
-                                <?php
-                                $date = $match['DateAndTime'];
-                                $time = date("m-d H:i", strtotime($date));
-                                echo $time;
-                                ?>
-                            </p>
+                            <div class="line-break"></div>
                         </a>
                     </div>
                 <?php endforeach;
@@ -97,39 +101,10 @@ if (isset($_GET['champ'])) {
             ?>
         </div>
         <div class="sidebar">
-            <img src="https://via.placeholder.com/280x300">
+            <a href="https://1xbetua.com/ua/"><img src="https://www.academiadetips.com/wp-content/uploads/2019/01/1xBet-Banner280x300.gif"></a>
         </div>
     </div>
 </main>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $(function () {
-        //ТУТ ЧИСТЫЙ КАСТЫЛЬ ЗАВЯЗАНЫЙ НА СТИЛЯХ ЛУЧШЕ ПОКА НЕ ТРОГАЙ РЕКЛАМНЫЙ БЛОК!!!
-        const $window = $(window);
-        const $sidebar = $(".sidebar");
-        const $sidebarTop = $sidebar.position().top;
-        const $sidebarHeight = $sidebar.height();
-        const $footer = $('.footer');
-        const $footerTop = $footer.position().top;
-        const cont = document.getElementById('cont')
-        const div = document.createElement('div');
-        div.className = "lul"
-
-        $window.scroll(function (event) {
-            cont.appendChild(div);
-            $sidebar.addClass("fixed");
-            let $scrollTop = $window.scrollTop();
-            let $topPosition = Math.max(0, $sidebarTop - $scrollTop);
-
-            if ($scrollTop + $sidebarHeight > $footerTop) {
-                let $topPosition = Math.min($topPosition, $footerTop - $scrollTop - $sidebarHeight);
-            }
-
-            $sidebar.css("top", $topPosition);
-        });
-    });
-</script>
 
 
 <?php

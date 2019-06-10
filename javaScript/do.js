@@ -44,12 +44,12 @@ $("#getMoneyBtn").on( "click", function(){
         },
         success:function (data) {
             if(data == 'Error'){
-                $("#getMoneyErrorMes").html("<span>Виртуальная валюта выплачивается только в том случае,</span></br><span>если на счету критически мало средств</span>");
+                $("#getMoneyErrorMes").html("<span>Виртуальная валюта выдаётся в том случае,</span><div class=\"line-break\"></div><span>если на баланс меньше 100 единиц виртуальной валюты</span>");
             }else {
                 $("#videoMoney").css("visibility","visible");
                 $("#videoMoney").get(0).play();
                 $("#closeMoney").css("visibility","hidden");
-                setTimeout(function(){ $("#closeMoney").css("visibility","visible");},20000);
+                setTimeout(function(){ $("#closeMoney").css("visibility","visible");},13000);
             }
             $("#getMoneyBtn").prop("disabled",false);
         }
@@ -64,7 +64,7 @@ $("#sendBtn").on( "click", function(){
     const date = $("#regDate").val().trim();
     const pass= $("#regPass").val().trim();
     const confPass = $("#regConfPass").val().trim();
-    const number = $("#regNumber").val().trim();
+
 
     if(email == ""){
         $("#regErrorMes").text("поле email не заполнено");
@@ -246,7 +246,7 @@ $("#setMatchBtn").on('click',function () {
             $("#setMatchBtn").prop("disabled",true);
         },
         success:function (data) {
-            alert(data);
+            alert("Матч добавлен");
             $("#setMatchBtn").prop("disabled",false);
         }
     });
@@ -302,38 +302,51 @@ function visibleBets() {
             let bool = false;
             let cef = 1;
             let out = "";
-            out += "<h3>Купон</h3>"
-            out += '<button id ="UpdateCef">Обновить</button></br>';
+            out += "<div class='coupon-head'>"
+            out += "<h3 class='coupon-headline'>Игровой билет</h3>"
+            out += '<button id ="UpdateCef" class="UpdateCef"><i class="fas fa-retweet"></i></button><div class="line-break"></div>';
+            out += "</div>";
             for (var key in matches) {
                 bool = true;
                 out += "<div class='matchInBet'>";
-                out += "<button data-art = "+ key +" class='deleteBetBtn'>X</button></br>"
-                out += "<span>" + matches[key][0] + "</span>";
-                out += "</br>"
-                out += "<span>" + matches[key][2] + "       </span>";
-                out += "<span>" + matches[key][3] + "</span>";
+                out += "<button data-art = "+ key +" class='deleteBetBtn'>X</button><div class=\"line-break\"></div>"
+                out += "<div class='coupon-match'>"
+                out += "<span class='coupon-curr-match'>" + matches[key][0] + "</span>";
+                out += "<div class=\"line-break\" style='padding: 10px;'></div>"
+                out += "<span class='coupon-expression'>" + matches[key][2] + "       </span>";
+                out += "<span class='coupon-coff'>" + matches[key][3] + "</span>";
                 out += "</div>";
-                out += "</br>"
+                out += "<div class=\"line-break\"></div>"
+                out += "</div>"
                 out += "</div>";
                 cef *= matches[key][3];
             }
-            out += "<div>Общий коэфициент:</div>";
-            out += "<div id='cefId' class='cefDiv'>" + cef + "</div>";
-            out += "<span>Сумма ставки:</span>";
+            out += "<div class='coupon-footer'>"
+            out += "<div class='coupon-footer-coff'>"
+            out += "<div class='coupon-footer-coff-text'>Общий коэфициент:</div>";
+            out += "<div id='cefId' class='cefDiv'>" + cef.toFixed(2) + "</div>";
+            out += "</div>";
+            out += "<div class='coupon-sum'>"
+            out += "<span class='coupon-sum-text'>Сумма ставки:</span>";
+            out += "<div class='coupon-footer-input'>";
             out += "<form>";
-            out += "<input id=\"betSum\" class=\"betInp\" type=\"text\" name=\"sum\" placeholder = '0.0'></br>";
-            out += "<button type=\"button\" class=\"doBetBtn\">Отправить</button>";
+            out += "<input id=\"betSum\" class=\"betInp\" type=\"text\" name=\"sum\" placeholder = '0.0'>";
+            out += "<span class=\"coupon-footer-money\">VCN</span>"
+            out += "</div>"
+            out += "</div>";
+            out += "<button type=\"button\" class=\"doBetBtn\">Сделать ставку</button>";
             out += "</form>";
             out += "<div class=\"errorMes\" id=\"betErrorMes\"></div>"
+            out += "</div>";
             $(".betDiv").html(out);
             $(".deleteBetBtn").on("click",deleteBet);
             $(".doBetBtn").on("click",doBet);
             $("#UpdateCef").on("click",updateCef);
 
             if(bool) {
-                $(".betDiv").css("visibility", "visible");
+                $(".betDiv").css("display", "block");
             }else {
-                $(".betDiv").css("visibility", "hidden");
+                $(".betDiv").css("display", "none");
             }
 }
 
@@ -348,7 +361,6 @@ function deleteBet() {
 function doBet() {
     let sum = Number($('#betSum').val());
     let cef = Number($('#cefId').text());
-
     if(sum == ''){
         $('#betErrorMes').text('Введите сумму ставки');
         return false;
@@ -369,8 +381,10 @@ function doBet() {
             $(".doBetBtn").prop("disabled",true);
         },
         success:function (data) {
-            if(data == "wrongCef"){
-                $('#betErrorMes').text('Коэфициэнты изменились. Обновите купон');
+            if(data == 'IncorrectInput'){
+                $('#betErrorMes').text('Некоректный ввод')
+            } else if(data == "wrongCef"){
+                $('#betErrorMes').text('Коэфициэнты изменились. Обновите игровой билет');
             }else if(data == "notAuthorizeError"){
                 $('#betErrorMes').text('Для ставок нужно авторизироватся');
             }else if(data == "littleValutaError"){
@@ -387,14 +401,14 @@ function doBet() {
 
 //открытие формы изменения пароля
 $("#changePasswordBtn").on("click", function () {
-    $(".changePasswordDiv").css('visibility','visible');
-    $(".changeNumberDiv").css('visibility','hidden');
+    $(".changePasswordDiv").css('display','block');
+    $(".changeNumberDiv").css('display','none');
 });
 
 //открытие формы изменения номера телефона
 $("#changeNumberBtn").on("click", function () {
-    $(".changePasswordDiv").css('visibility','hidden');
-    $(".changeNumberDiv").css('visibility','visible');
+    $(".changePasswordDiv").css('display','none');
+    $(".changeNumberDiv").css('display','block');
 });
 
 //изменение номера

@@ -1,0 +1,178 @@
+.betDiv {
+    position: absolute;
+    z-index: 4;
+    top: 170px;
+    background-color: yellow;
+    border: 2px solid #224377;
+    text-shadow: none;
+    border-radius: 4px 4px 0 0;
+}
+
+.cont-betDiv {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+.deleteBetBtn {
+    float: right;
+    color: #fff;
+    font-weight: bold;
+    background-color: #3179fd;
+    border: none;
+}
+
+.deleteBetBtn:hover,
+.deleteBetBtn:focus {
+    color: #F60035;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.coupon-match {
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.coupon-curr-match {
+    white-space: nowrap;
+    color: #336FB2;
+}
+
+.coupon-expression {
+    padding-right: 15px;
+    color: #47BA8B;
+}
+
+.coupon-coff {
+    color: #C51255;
+}
+
+.coupon-head {
+    display: flex;
+    white-space: nowrap;
+    background-color: #0059FF ;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: .4px;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    outline: 0;
+    border: 0;
+    text-shadow: none;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.coupon-headline {
+    font-size: 29px;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+.UpdateCef {
+    background-color: #0059FF ;
+    border: none;
+    color: #fff;
+    font-size: 25px;
+}
+
+.UpdateCef:hover,
+.UpdateCef:focus{
+    background-color: #149435;
+}
+
+.matchInBet {
+    background-color: #EBF2FE;
+    border-bottom: 1px solid #0059FF;
+}
+
+.coupon-footer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.coupon-footer-coff {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.coupon-footer-coff-text {
+    padding: 0 10px;
+    color: #525F81;
+    font-weight: bold;
+}
+
+.cefDiv {
+    color: #C51255;
+    font-weight: bolder;
+}
+
+.doBetBtn {
+    font-size: 12px;
+    font-weight: 700;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 1px;
+    position: relative;
+    text-decoration: none;
+    border: 0;
+    color: #fff;
+    background: #42b73d;
+}
+
+.doBetBtn:hover,
+.doBetBtn:focus{
+    background-color: #409F3B;
+}
+
+.coupon-footer-input {
+    background-color: #ebf2fe;
+    border-radius: 2px;
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    position: relative;
+    text-align: right;
+    vertical-align: middle;
+    width: 96px
+}
+
+.betInp {
+    background-color: transparent;
+    border: solid 1px #dae3ee;
+    color: #1e375c;
+    display: block;
+    font-weight: 600;
+    height: 28px;
+    line-height: 1;
+    text-align: right;
+    font-size: 14px;
+    width: 100%;
+    padding: 1px 35px 1px 5px;
+}
+
+.coupon-footer-money {
+    color: #1e375c;
+    font-weight: 600;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    font-size: 14px;
+    line-height: 28px;
+    height: 28px;
+    display: block;
+}
+
+.coupon-sum {
+    padding: 10px 0
+}
+
+.coupon-sum-text {
+    padding: 0 15px;
+}

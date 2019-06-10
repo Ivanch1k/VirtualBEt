@@ -1,17 +1,12 @@
 <?php
 session_start();
 
-$mysql = new mysqli("localhost","root","","virtualbet");
-if ($mysql->connect_errno) {
-    printf("Не удалось подключиться: %s\n", $mysql->connect_error);
-    exit();
-}
-$mysql->query("SET NAMES 'utf-8");
+$mysql = pg_connect(getenv("DATABASE_URL"));
 
 function getValuta(){
     $id = $_SESSION['loggedUser']['Id'];
     global $mysql;
-    $result = $mysql->query("SELECT Balance FROM client WHERE Id = $id;");
+    $result = pq_query($mysql,"SELECT Balance FROM client WHERE Id = $id;");
     while(($row = $result->fetch_assoc()) != false){
             return $row['Balance'];
     }
@@ -20,7 +15,7 @@ function getValuta(){
 
 function getLastId(){
     global $mysql;
-    $result = $mysql->query("SELECT MAX(Id) FROM coupon;");
+    $result = pq_query($mysql,"SELECT MAX(Id) FROM coupon;");
     while(($row = $result->fetch_assoc()) != false){
         $res = $row['MAX(Id)'];
         return ++$res;
@@ -35,10 +30,10 @@ function ChangeCef($matchId, $event)
     //определение переменных
     global $mysql;
     $marga = 0.05;
-    $matchCefs = $mysql->query("SELECT * FROM match1 WHERE Id = $matchId;");
+    $matchCefs = pq_query($mysql,"SELECT * FROM match1 WHERE Id = $matchId;");
 
     if($event == 'P1' || $event == 'P2' || $event == 'Px'){
-        $fond = $mysql->query("SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event IN('P1','P2','Px'));");
+        $fond = pq_query($mysql,"SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event IN('P1','P2','Px'));");
         foreach ($fond as $f){
             $bank = $f['SUM(Money)'];
         }
@@ -47,9 +42,9 @@ function ChangeCef($matchId, $event)
             $secondCef = $cefs['P2'];
             $draw = $cefs['Px'];
         }
-        $t1 = $mysql->query("SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P1');");
-        $t2 = $mysql->query("SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P2');");
-        $tx = $mysql->query("SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'Px');");
+        $t1 = pq_query($mysql,"SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P1');");
+        $t2 = pq_query($mysql,"SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P2');");
+        $tx = pq_query($mysql,"SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'Px');");
     }else{
         $fond = $mysql->query("SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event IN('P1x','P2x','P12'));");
         foreach ($fond as $f){
@@ -60,9 +55,9 @@ function ChangeCef($matchId, $event)
             $secondCef = $cefs['P2x'];
             $draw = $cefs['P12'];
         }
-        $t1 = $mysql->query("SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P1x');");
-        $t2 = $mysql->query("SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P2x');");
-        $tx = $mysql->query("SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P12');");
+        $t1 = pq_query($mysql,"SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P1x');");
+        $t2 = pq_query($mysql,"SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P2x');");
+        $tx = pq_query($mysql,"SELECT SUM(Money) FROM coupon WHERE Id IN(SELECT CouponId FROM bet WHERE MatchId = $matchId AND Event = 'P12');");
     }
     foreach ($t1 as $t){
         $total1 = $t['SUM(Money)'];
@@ -73,9 +68,9 @@ function ChangeCef($matchId, $event)
     foreach ($tx as $t){
         $totalDraw = $t['SUM(Money)'];
     }
-    $value = 100000;
+    $value = 1000000;
 
-    $bank += 100000;
+    $bank += 1000000;
     $total1 += ($value - ($value * marga)) / $firstCef; // тотал выставляется как 100_000 - (100_000 * маржа) + результат запроса
     $total2 += ($value - ($value * marga)) / $secondCef;
     $totalDraw += ($value - ($value * marga)) / $draw;
@@ -124,9 +119,9 @@ function ChangeCef($matchId, $event)
     }
 
     if($event == 'P1' || $event == 'P2' || $event == 'Px'){
-        $mysql->query("UPDATE match1 SET P1 = $firstCef, P2 = $secondCef, Px = $draw WHERE Id = $matchId");
+        pq_query($mysql,"UPDATE match1 SET P1 = $firstCef, P2 = $secondCef, Px = $draw WHERE Id = $matchId");
     }else{
-        $mysql->query("UPDATE match1 SET P1x = $firstCef, P2x = $secondCef, P12 = $draw WHERE Id = $matchId");
+        pq_query($mysql,"UPDATE match1 SET P1x = $firstCef, P2x = $secondCef, P12 = $draw WHERE Id = $matchId");
     }
 }
 
@@ -138,9 +133,9 @@ foreach ($matchesStorage as $matchStorage){
     $id = $matchStorage[4];
     $event = $matchStorage[2];
     $cef = $matchStorage[3];
-    $matches = $mysql->query("SELECT * FROM match1 WHERE Id = $id");
+    $matches = pq_query($mysql,"SELECT * FROM match1 WHERE Id = $id");
     foreach ($matches as $match){
-        $mCef = $match[$event];
+        $mCef = round($match[$event],2);
         if($mCef != $cef){
             $counter++;
         }
@@ -148,13 +143,16 @@ foreach ($matchesStorage as $matchStorage){
 }
 
 if($counter < 1){
-    $sum = $_POST['sum'];
+    $sum = round($_POST['sum'],2);
     $matches = $_POST['matches'];
     $cef = $_POST['cef'];
     $lastId = getLastId();
     $date = date('Y-m-d G:i:s', strtotime("+1 hours"));
 
-    if(!(isset($_SESSION['loggedUser']))){
+
+    if($sum < 10){
+        echo "IncorrectInput";
+    }else if(!(isset($_SESSION['loggedUser']))){
         echo 'notAuthorizeError';
     }else if($sum > getValuta()){
         $a = getValuta();
@@ -163,14 +161,14 @@ if($counter < 1){
         $clientId = $_SESSION["loggedUser"]["Id"];
         $balance = getValuta();
         $balance -= $sum;
-        $mysql->query("UPDATE client SET Balance = $balance WHERE Id = $clientId");
+        pq_query($mysql,"UPDATE client SET Balance = $balance WHERE Id = $clientId");
         $_SESSION["loggedUser"]["Balance"] = $balance;
-        $mysql->query("INSERT INTO coupon(Id,ClientId,Stat,DateAndTime,Money,Coefficient) VALUES($lastId,$clientId,0,'$date',$sum,$cef);");
+        pq_query($mysql,"INSERT INTO coupon(Id,ClientId,Stat,DateAndTime,Money,Coefficient) VALUES($lastId,$clientId,0,'$date',$sum,$cef);");
         foreach($matches as $match){
             $matchId = $match[4];
             $coefficient = $match[3];
             $event = $match[2];
-            $mysql->query("INSERT INTO bet(CouponId,MatchId,Stat,Coefficient,Event) VALUES($lastId,$matchId,0,$coefficient,'$event');");
+            pq_query($mysql,"INSERT INTO bet(CouponId,MatchId,Stat,Coefficient,Event) VALUES($lastId,$matchId,0,$coefficient,'$event');");
             if($event == 'P1' || $event == 'P2' || $event == 'Px' || $event == 'P1x' || $event == 'P2x' || $event == 'P12'){
                 ChangeCef($matchId, $event);
             }

@@ -1,20 +1,26 @@
 .couponDiv{
     width: 70%;
     height: 100px;
-    background-color: #3F3E40;
-    border: black 2px solid;
+    background-color: #DBE1ED;
+    border: #fff 2px solid;
+    position: relative;
+    left: 250px;
 }
 .couponDivContent{
     float: left;
     margin-right: 50px;
     width: 150px;
     font-size: 17px;
+    padding: 10px;
 }
 .firstRowCoupon{
-    color: #E8E835;
+    color: #224377;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 .secondRowCoupon{
-    color: #FFFFFF;
+    color: #1E375C;
 }
 .notResultCef{
     float: left;
@@ -54,33 +60,45 @@
 }
 .arrow{
     float: left;
-    color: #FFFFFF;
     font-size: 50px;
     cursor: pointer;
 }
 .matchesInHistory{
     width: 70%;
-    background-color: #FFFF33;
+    background-color: #397CF6;
     padding-top: 10px;
     padding-bottom: 10px;
     display: none;
+    position: relative;
+    left: 250px;
 }
 .infoMatchHistory{
     width: 95%;
-    height: 100px;
     margin: 10px;
-    background-color: #FFFF33;
-    border: #797979 2px solid;
+    background-color: #397CF6;
+    border-bottom: #224377 1px solid;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
+
+.infoMatchHistory:last-child {
+    border: none;
+}
+
 .couponDetailInfo{
     float: left;
     margin-right: 50px;
     width: 250px;
     font-size: 15px;
+    color: #fff;
+    font-weight: bold;
 }
 .couponResultInfo{
     float: left;
     margin-right: 50px;
     width: 150px;
     font-size: 15px;
+    color: #fff;
+    font-weight: bold;
 }

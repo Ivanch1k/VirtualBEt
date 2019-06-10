@@ -28,3 +28,76 @@
     max-height: 100%;
     white-space: nowrap;
 }
+
+.balance {
+    text-align: right;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.balance-text {
+    padding-right: 50px;
+    padding-left: 50px;
+    color: #FBDD8C;
+    font-size: 25px;
+    font-weight: 600
+}
+
+.balance-bill {
+    padding-right: 50px;
+    color: #FBDD8C;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.headDiv {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    align-items: center;
+    margin-left: 300px;
+}
+
+.poster{
+    position:relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.descr{
+    display:none;
+    margin-top: 40px;
+    padding:10px 10px 0 10px;
+    background:#f3f3f3;
+    -moz-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    box-shadow:0 5px 5px rgba(0,0,0,0.3);
+}
+.poster:hover .descr{
+    display:flex;
+    position:absolute;
+    z-index:9999;
+    width:100%;
+    flex-direction: column;
+    background-color: #224377;
+}
+
+
+.descr-btn {
+    color: #fff;
+    background-color: #224377;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    border: none;
+    border-top: 1px solid black;
+}
+
+.descr-btn:hover,
+.descr-btn:focus {
+    background-color: #132C55;
+}
+#refreshBtn{
+    cursor: pointer;
+}

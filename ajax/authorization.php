@@ -11,13 +11,8 @@ function match($result, $mail, $pass){
 $email = $_POST['email'];
 $pass = md5($_POST['pass']);
 if($email != 'ogteam'&& $pass !='123456') {
-    $mysql = new mysqli("localhost", "root", "", "virtualbet");
-    if ($mysql->connect_errno) {
-        printf("Не удалось подключиться: %s\n", $mysql->connect_error);
-        exit();
-    }
-    $mysql->query("SET NAMES 'utf-8");
-    $result = $mysql->query("SELECT * FROM client");
+    $mysql = pg_connect(getenv("DATABASE_URL"));
+    $result = pq_query($mysql,"SELECT * FROM client");
 
     $user = match($result, $email, $pass);
     if ($user != false) {
@@ -27,7 +22,10 @@ if($email != 'ogteam'&& $pass !='123456') {
         echo "false";
     }
 }else{
-    echo "http://localhost/dashboard/virtualBet/admin.php";
+    echo "
+    
+    
+    admin.php";
 }
 
 ?>

@@ -51,6 +51,7 @@
     position: relative;
     top: 0px;
     transition: all ease 0.3s;
+    margin-bottom: 10px;
 }
 
 .btn-regestration:active {
@@ -67,4 +68,7 @@
     padding-right: 10px;
     cursor: pointer;
     color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+    white-space: nowrap;
 }

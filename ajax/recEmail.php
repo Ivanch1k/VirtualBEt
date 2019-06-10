@@ -17,14 +17,9 @@ $email = $_POST['email'];
 
 
 
-    $mysql = new mysqli("localhost", "root", "", "virtualbet");
-    if ($mysql->connect_errno) {
-        printf("Не удалось подключиться: %s\n", $mysql->connect_error);
-        exit();
-    }
-    $mysql->query("SET NAMES 'utf-8");
+$mysql = pg_connect(getenv("DATABASE_URL"));
 
-    $mails = $mysql->query("SELECT * FROM client WHERE Mail = '$email'");
+    $mails = pq_query($mysql,"SELECT * FROM client WHERE Mail = '$email'");
     $counter = 0;
     foreach ($mails as $e){
         $counter++;
@@ -35,7 +30,7 @@ $email = $_POST['email'];
         echo $randomPass;
         mail($email,$subject,$message);
         $randomPass = md5($randomPass);
-        $mysql->query("UPDATE client SET Pass = '$randomPass' WHERE Mail = '$email'");
+        pq_query($mysql,"UPDATE client SET Pass = '$randomPass' WHERE Mail = '$email'");
     } else {
         echo "false";
     }

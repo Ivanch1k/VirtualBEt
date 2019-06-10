@@ -14,7 +14,7 @@ $champ = false;
 if (isset($_GET['champ'])) {
     $champ = getChamp($_GET['champ']);
     if ($champ) {
-        $matches = $mysql->query("SELECT * FROM match1 WHERE Championship = '$champ' AND Stat = 1");
+        $matches = pq_query($mysql,"SELECT * FROM match1 WHERE Championship = '$champ' AND Stat = 1");
     }
 }
 ?>
@@ -71,16 +71,23 @@ if (isset($_GET['champ'])) {
         </div>
 
         <div id="matchesDiv" class="main-match">
+            <div class="text-live">
+                <p>Live</p>
+            </div>
             <?php
             if ($champ != false):
                 foreach ($matches as $match):
                     ?>
-                    <div class="matchDivLive" id="<?php echo $match['Id'] ?>">
+                    <div class="matchDivLive matchDiv" id="<?php echo $match['Id'] ?>">
                         <a class="match-href" style="text-decoration: none">
-                            <p><?php echo $match['Team1']?></p>
-                            <p><?php echo $match['Result']?></p>
-                            <p><?php echo $match['Team2']?></p>
+                            <p><?php echo $match['Team1']?> </p>
+                            <p class="resultLive"><?php echo "| ".$match['Result']." |"?> </p>
+                            <p><?php echo $match['Team2']." "?> </p>
+                            <span class="middot">&#8226;</span>
+                            <div class="line-break"></div>
                             <!-- МАКС ДОБАВЬ ТУТ КРАСНУ ТОЧКУ СПРАВА(ТИПО ЛАЙВ) -->
+                            <!--ДЛЯ НОРМ СТИЛЕЙ ТУТ БЫ СТРУКТУРУ ПОМЕНЯТЬ-->
+                            <!--ПОНЯЛ ПРИНЯЛ MAKSON-->
                         </a>
                     </div>
                 <?php endforeach;
@@ -90,40 +97,12 @@ if (isset($_GET['champ'])) {
             ?>
         </div>
         <div class="sidebar">
-            <img src="https://via.placeholder.com/280x300">
+            <a href="https://1xbetua.com/ua/"><img src="https://www.academiadetips.com/wp-content/uploads/2019/01/1xBet-Banner280x300.gif"></a>
         </div>
     </div>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $(function () {
-        //ТУТ ЧИСТЫЙ КАСТЫЛЬ ЗАВЯЗАНЫЙ НА СТИЛЯХ ЛУЧШЕ ПОКА НЕ ТРОГАЙ РЕКЛАМНЫЙ БЛОК!!!
-        const $window = $(window);
-        const $sidebar = $(".sidebar");
-        const $sidebarTop = $sidebar.position().top;
-        const $sidebarHeight = $sidebar.height();
-        const $footer = $('.footer');
-        const $footerTop = $footer.position().top;
-        const cont = document.getElementById('cont')
-        const div = document.createElement('div');
-        div.className = "lul"
-
-        $window.scroll(function (event) {
-            cont.appendChild(div);
-            $sidebar.addClass("fixed");
-            let $scrollTop = $window.scrollTop();
-            let $topPosition = Math.max(0, $sidebarTop - $scrollTop);
-
-            if ($scrollTop + $sidebarHeight > $footerTop) {
-                let $topPosition = Math.min($topPosition, $footerTop - $scrollTop - $sidebarHeight);
-            }
-
-            $sidebar.css("top", $topPosition);
-        });
-    });
-</script>
-
 
 <?php
 require "footer.php";

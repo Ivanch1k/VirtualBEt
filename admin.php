@@ -25,6 +25,7 @@
     <button type="button" id="setMatchBtn">Отправить</button>
 </br></br></br>
 <a href="getWinner.php"> Проверить купоны</a>
+    <a href="parser.php"> Обновить матчи</a>
 </form>
 <?php
 require 'footer.php';

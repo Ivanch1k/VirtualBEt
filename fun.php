@@ -1,17 +1,11 @@
 <?php
 session_start();
 
-$link = pg_connect(getenv("DATABASE_URL"));
-
-if (!$link) {
-printf("Не удалось подключиться: %s\n");
-exit();
-}
-$response = pg_query($link, "SET NAMES 'utf-8");
+$mysql = pg_connect(getenv("DATABASE_URL"));
 
 function getMatch( $id){
     global $mysql;
-    $match = pg_query($link, "SELECT * FROM match1 WHERE Id = '$id'");
+    $match = pq_query($mysql,"SELECT * FROM match1 WHERE Id = '$id'");
     foreach ($match as $single){
         return $single;
     }
@@ -20,10 +14,10 @@ function getMatch( $id){
 function getChamp($champ){
     switch ($champ) {
         case "WorldTov":
-            $champ = "Мир международные";
+            $champ = "Мирм";
             break;
         case "WorldClub" :
-            $champ = "Мир клубные";
+            $champ = "Мирк";
             break;
         case "England" :
             $champ = "Англия";

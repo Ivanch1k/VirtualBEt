@@ -1,0 +1,30 @@
+.text-live {
+    background-color:#EA0C68 ;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    outline: 0;
+    border: 0;
+    text-shadow: none;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px 4px 0 0;
+}
+
+.middot {
+    color: #F00E16;
+    font-size: 40px;
+    position: absolute;
+    right: 295px;
+}
+.resultLive{
+    color: #F00E16;
+}

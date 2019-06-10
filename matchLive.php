@@ -31,40 +31,44 @@ $img2 = "undefinedLogo";
             <div class="matchImg"><img src="images/<?php echo $img2 ?>.png"></div>
         </div>
         <div class="match-btns">
+            <span class="match-text"><i class="far fa-star"></i>1 Х 2</span>
             <div class="matchBetWin">
-                <span class="match-text">1 Х 2</span></br>
-                <button class="matchBtn" id="P1" value="<?php echo $match['P1'] ?>">
-                    П1 <?php echo $match['P1'] ?></button>
-                <button class="matchBtn" id="Px" value="<?php echo $match['Px'] ?>">
-                    X <?php echo $match['Px'] ?></button>
-                <button class="matchBtn" id="P2" value="<?php echo $match['P2'] ?>">
-                    П2 <?php echo $match['P2'] ?></button>
+                <button class="matchBtn" id="P1" value="<?php echo round($match['P1'],2); ?>">
+                    П1 <?php echo round($match['P1'],2) ?></button>
+                <button class="matchBtn" id="Px" value="<?php echo round($match['Px'],2); ?>">
+                    X <?php echo round($match['Px'],2) ?></button>
+                <button class="matchBtn" id="P2" value="<?php echo round($match['P2'],2); ?>">
+                    П2 <?php echo round($match['P2'],2) ?></button>
             </div>
+            <span class="match-text"><i class="far fa-star"></i>Двойной шанс</span>
             <div class="matchBetWin">
-                <span class="match-text">Двойной шанс</span></br>
-                <button class="matchBtn" id="P1x" value="<?php echo $match['P1x'] ?>">
-                    1X <?php echo $match['P1x'] ?></button>
-                <button class="matchBtn" id="P12" value="<?php echo $match['P12'] ?>">
-                    12 <?php echo $match['P12'] ?></button>
-                <button class="matchBtn" id="P2x" value="<?php echo $match['P2x'] ?>">
-                    2X <?php echo $match['P2x'] ?></button>
+                <button class="matchBtn" id="P1x" value="<?php echo round($match['P1x'],2); ?>">
+                    1X <?php echo round($match['P1x'],2) ?></button>
+                <button class="matchBtn" id="P12" value="<?php echo round($match['P12'],2); ?>">
+                    12 <?php echo round($match['P12'],2) ?></button>
+                <button class="matchBtn" id="P2x" value="<?php echo round($match['P2x'],2); ?>">
+                    2X <?php echo round($match['P2x'],2) ?></button>
             </div>
+            <span class="match-text"><i class="far fa-star"></i>Тотал</span>
             <div class="matchBetTotal">
-                <span class="match-text">Тотал</span></br>
-                <button class="matchBtn" id="TB15" value="<?php echo $match['TB15'] ?>">1.5
-                    Б <?php echo $match['TB15'] ?></button>
-                <button class="matchBtn" id="TM15" value="<?php echo $match['TM15'] ?>">1.5
-                    М <?php echo $match['TM15'] ?></button>
-                </br>
-                <button class="matchBtn" id="TB25" value="<?php echo $match['TB25'] ?>">2.5
-                    Б <?php echo $match['TB25'] ?></button>
-                <button class="matchBtn" id="TM25" value="<?php echo $match['TM25'] ?>">2.5
-                    М <?php echo $match['TM25'] ?></button>
-                </br>
-                <button class="matchBtn" id="TB35" value="<?php echo $match['TB35'] ?>">3.5
-                    Б <?php echo $match['TB35'] ?></button>
-                <button class="matchBtn" id="TM35" value="<?php echo $match['TM35'] ?>">3.5
-                    М <?php echo $match['TM35'] ?></button>
+                <div class="match-total-btns">
+                <button class="matchBtn" id="TB15" value="<?php echo round($match['TB15'],2) ?>">1.5
+                    Б <?php echo round($match['TB15'],2) ?></button>
+                <button class="matchBtn" id="TM15" value="<?php echo round($match['TM15'],2) ?>">1.5
+                    М <?php echo round($match['TM15'],2) ?></button>
+                </div>
+                <div class="match-total-btns">
+                <button class="matchBtn" id="TB25" value="<?php echo round($match['TB25'],2) ?>">2.5
+                    Б <?php echo round($match['TB25'],2) ?></button>
+                <button class="matchBtn" id="TM25" value="<?php echo round($match['TM25'],2) ?>">2.5
+                    М <?php echo round($match['TM25'],2) ?></button>
+                </div>
+                <div class="match-total-btns">
+                <button class="matchBtn" id="TB35" value="<?php echo round($match['TB35'],2) ?>">3.5
+                    Б <?php echo round($match['TB35'],2) ?></button>
+                <button class="matchBtn" id="TM35" value="<?php echo round($match['TM35'],2) ?>">3.5
+                    М <?php echo round($match['TM35'],2) ?></button>
+                </div>
             </div>
         </div>
     </div>

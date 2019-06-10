@@ -27,3 +27,8 @@
 .headerBtn{
     max-height: 100%;
 }
+
+#liveBtn {
+    border: 1px solid #EA0C68;
+    background-color: #EA0C68;
+}

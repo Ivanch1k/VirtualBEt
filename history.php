@@ -2,23 +2,18 @@
 session_start();
 require 'authorizedHeader.php';
 
-$mysql = new mysqli("localhost","root","","virtualbet");
-if ($mysql->connect_errno) {
-    printf("Не удалось подключиться: %s\n", $mysql->connect_error);
-    exit();
-}
-$mysql->query("SET NAMES 'utf-8");
+$mysql = pg_connect(getenv("DATABASE_URL"));
 ///
 
 
 $user = $_SESSION["loggedUser"]["Id"];
-$coupons = $mysql->query("SELECT * FROM coupon WHERE ClientId = $user ORDER BY DateAndTime DESC ;");
+$coupons = pq_query($mysql,"SELECT * FROM coupon WHERE ClientId = $user ORDER BY DateAndTime DESC ;");
 
 // начало вывода истории
 foreach ($coupons as $coupon):
     $count = 0;
   $couponId = $coupon['Id'];
-  $bets = $mysql->query("SELECT * FROM bet WHERE CouponId = $couponId;");
+  $bets = pq_query($mysql,"SELECT * FROM bet WHERE CouponId = $couponId;");
 
   foreach ($bets as $bet){
       $count++;
@@ -48,29 +43,29 @@ foreach ($coupons as $coupon):
         <span class="secondRowCoupon">Не разыграна</span>
     </div>
     <div class="couponDivContent">
-        <span class="firstRowCoupon">Ставка></span></br>
+        <span class="firstRowCoupon">Ставка</span></br>
         <span class="secondRowCoupon"><?php echo $coupon['Money']?></span>
     </div>
     <div class="notResultCef">
-        <?php echo $coupon['Coefficient']?>
+        <?php echo round($coupon['Coefficient'],2)?>
     </div>
 
     <?php elseif($coupon['Stat'] == 1): ?>
     <span class="secondRowCoupon">Проиграна</span>
     </div>
     <div class="couponDivContent">
-        <span class="firstRowCoupon">Ставка></span></br>
+        <span class="firstRowCoupon">Ставка</span></br>
         <span class="secondRowCoupon"><?php echo $coupon['Money']?></span>
     </div>
     <div class="badResultCef">
-        <?php echo $coupon['Coefficient']?>
+        <?php echo round($coupon['Coefficient'],2)?>
     </div>
 
     <?php else: ?>
     <span class="secondRowCoupon">Выиграна</span>
     </div>
     <div class="couponDivContent">
-        <span class="firstRowCoupon">Выигрыш></span></br>
+        <span class="firstRowCoupon">Выигрыш</span></br>
         <span class="secondRowCoupon">
             <?php
                 $win = $coupon['Money'] * $coupon['Coefficient'];
@@ -79,7 +74,7 @@ foreach ($coupons as $coupon):
         </span>
     </div>
     <div class="goodResultCef">
-        <?php echo $coupon['Coefficient']?>
+        <?php echo round($coupon['Coefficient'], 2)?>
     </div>
     <?php endif; ?>
     <div data-art= "1" class="arrow">
@@ -90,16 +85,40 @@ foreach ($coupons as $coupon):
     <div class="matchesInHistory">
         <?php foreach ($bets as $bet):
             $event = $bet['Event'];
+            if($event == 'ТB15'){
+                $event = 'ТB 1.5';
+            }
+            if($event == 'ТB25'){
+                $event = 'ТB 2.5';
+            }
+            if($event == 'ТB35'){
+                $event = 'ТБ 3.5';
+            }
+            if($event == 'ТM15'){
+                $event = 'ТМ 1.5';
+            }
+            if($event == 'ТM25'){
+                $event = 'ТМ 2.5';
+            }
+            if($event == 'ТM35'){
+                $event = 'ТМ 3.5';
+            }
             $stat = $bet['Stat'];
             $matchId = $bet['MatchId'];
-            $matches = $mysql->query("SELECT * FROM match1 WHERE Id = $matchId;");
+            $matches = pq_query($mysql,"SELECT * FROM match1 WHERE Id = $matchId;");
             ?>
             <div class="infoMatchHistory">
                 <div class="couponDetailInfo">
-                    <span>Футбол.
+                    <span>Футбол
                         <?php
                         foreach ($matches as $match){
                             $champ = $match['Championship'];
+                            if($champ == 'Мирк'){
+                                $champ = 'Мир клубные';
+                            }
+                            if($champ == 'Мирм'){
+                                $champ = 'Мир международные';
+                            }
                             $team1 = $match['Team1'];
                             $team2 = $match['Team2'];
                             $date  = $match['DateAndTime'];
@@ -114,10 +133,10 @@ foreach ($coupons as $coupon):
                     </span>
                 </div>
                 <div class="couponResultInfo">
-                    <span><?php echo "Результат </br> </br> $result"?><span>
+                    <span><?php echo "Результат: </br> </br> $result"?><span>
                 </div>
                 <div class="couponResultInfo">
-                    <span><?php echo "Событие </br></br> $event"?><span>
+                    <span><?php echo "Событие: </br></br> $event"?><span>
                 </div>
                 <div class="
                 <?php if($stat == 0){
@@ -128,7 +147,7 @@ foreach ($coupons as $coupon):
                     echo "goodResultCef";
                 }?>
                 ">
-                    <?php echo $bet['Coefficient']?>
+                    <?php echo round($bet['Coefficient'],2)?>
                 </div>
 
             </div>
