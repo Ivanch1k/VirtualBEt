@@ -30,7 +30,7 @@
 			return;
 		}
 	} else if($_GET['action'] == 'test'){
-		$sql = "insert into test values('".$_GET['name']."', '".$_GET['dateOfBirth']."');";
+		$sql = "insert into test values('admin', '1999-01-01');";
 		$response = pg_query($link, $sql);
 		echo $response;
 	}
