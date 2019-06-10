@@ -25,7 +25,7 @@
 			echo 'error in sql';
 			return;
 		} else{
-			echo '{"status":"1"}'
+			echo '{"status":"1"}';
 			return;
 		}
 	}
