@@ -21,8 +21,11 @@
 				echo '{"status":"0"}';
 				return;
 			}
-		} else {
-			echo '{"status":"1"}';
+		} else if(!$response){
+			echo 'error in sql';
+			return;
+		} else{
+			echo '{"status":"1"}'
 			return;
 		}
 	}
