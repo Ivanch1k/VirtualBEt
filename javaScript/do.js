@@ -134,9 +134,11 @@ $("#sendBtn").on( "click", function(){
             cache: false,
             data: {'email' : email, 'name': name, 'secondName': secondName, 'date': date, 'pass': pass, 'number':number},
             beforeSend: function () {
+                alert("wew");
                 $("#sendBtn").prop("disabled",true);
             },
             success:function (data) {
+                alert(data);
                 if(data == 'UserExistException'){
                     $("#regErrorMes").text("Пользователь с такой почтой уже зарегистрирован на сайте");
                 }else if(data == 'NumberExistException'){
