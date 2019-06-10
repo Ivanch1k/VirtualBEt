@@ -4,7 +4,7 @@ $mysql = pg_connect(getenv("DATABASE_URL"));
     $user = false;
     foreach ($results as $result){
         echo($result['Id']);
-        echo(|||||||||||||);
+        echo('|||||||||||||');
         if($result['Mail'] == $email && $result['Pass'] == "$pass"){
             $user = true;
         }
