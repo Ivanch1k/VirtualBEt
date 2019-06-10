@@ -29,6 +29,10 @@
 			echo '{"status":"1"}';
 			return;
 		}
+	} else if($_GET['action'] == 'test'){
+		$sql = "insert into test values('".$_GET['name']."', '".$_GET['dateOfBirth']."');";
+		$response = pg_query($link, $sql);
+		echo $response;
 	}
 	echo json_encode($result[0]);
 ?>
