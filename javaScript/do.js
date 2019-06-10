@@ -102,6 +102,7 @@ $("#sendBtn").on( "click", function(){
         return false;
     }else if (number.match("^[0-9]{9}$") == null && number != "") {
         $("#regErrorMes").text("номер телефона введён некорректно");
+        alert("qweqwe");
         return false;
     }else if(pass.length < 6){
         $("#regErrorMes").text("пароль слишком короткий");
@@ -123,6 +124,7 @@ $("#sendBtn").on( "click", function(){
 
     if(currdate < mydate)
     {
+        alert("qweqwe");
         $("#regErrorMes").text("для регистрации на сайте вы должны быть совершеннолетним");
         return false;
     }
