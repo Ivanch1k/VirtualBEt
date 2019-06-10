@@ -168,7 +168,7 @@ $("#sendAutoBtn").on('click',function () {
 
 
     $.ajax({
-        url: 'ajax/authorization.php',
+        url: 'https://virtualbet.herokuapp.com/ajax/authorization.php',
         type: 'POST',
         cache: false,
         data: {'email' : email, 'pass': pass},
