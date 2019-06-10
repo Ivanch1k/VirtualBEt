@@ -12,5 +12,5 @@
 			$result = pg_fetch_all($response);
 		} 
 	}
-	echo json_encode($result);
+	echo json_encode($result[0]);
 ?>
