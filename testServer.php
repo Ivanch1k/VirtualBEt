@@ -15,7 +15,7 @@
 		$sql = "select * from client where Mail='".$_GET['login']."';";
 		$response = pg_fetch_all(pg_query($link, $sql));
 		echo $response;
-		if($response == "null"){
+		if(!$response){
 			$sql = "select MAX(id) from client;";
 			echo 'sfdfg';
 			$response = pg_fetch_all(pg_query($link, $sql));
@@ -29,7 +29,7 @@
 				echo '{"status":"0"}';
 				return;
 			}
-		} else if(!$response){
+		} else if($response){
 			echo 'error';
 			return;
 		} else{
