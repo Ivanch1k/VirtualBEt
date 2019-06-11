@@ -40,6 +40,12 @@
 		$sql = "insert into test values(2, 'admin', '1999-01-01');";
 		$response = pg_query($link, $sql);
 		echo $response;
+	} else if($_GET['action'] == 'matches'){
+		$sql = "select * from match1;";
+		$response = pg_fetch_all(pg_query($link, $sql));
+		echo $response;
+		echo json_encode($response);
+		return;
 	}
 	echo json_encode($result[0]);
 ?>
