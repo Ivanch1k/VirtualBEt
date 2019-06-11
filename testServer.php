@@ -44,6 +44,7 @@
 		$sql = "select * from match1;";
 		$response = pg_fetch_all(pg_query($link, $sql));
 		echo $response;
+		echo '--------';
 		echo json_encode($response);
 		return;
 	}
