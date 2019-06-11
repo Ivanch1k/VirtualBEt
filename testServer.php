@@ -17,7 +17,9 @@
 		echo $response;
 		if($response == "null"){
 			$sql = "select MAX(id) from client;";
+			echo 'sfdfg';
 			$response = pg_fetch_all(pg_query($link, $sql));
+			echo 'sfdfg';
 			echo $response;
 			$response += 1;
 			echo $response;
