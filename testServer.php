@@ -17,10 +17,8 @@
 		echo $response;
 		if(!$response){
 			$sql = "select MAX(id) from client;";
-			echo 'sfdfg';
 			$response = pg_fetch_all(pg_query($link, $sql));
-			echo 'sfdfg';
-			echo $response[0][max];
+			$response = $response[0][max];
 			$response += 1;
 			echo $response;
 			$sql = "insert into client values(".$response.", '".$_GET['name']."', '".$_GET['surname']."', '".$_GET['dateOfBirth']."', '".$_GET['login']."', '', '".$_GET['password']."', '', 1000);";
