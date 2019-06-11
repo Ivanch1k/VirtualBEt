@@ -11,6 +11,8 @@
 		if($response != ''){
 			$result = pg_fetch_all($response);
 		} 
+		echo json_encode($result[0]);
+		return;
 	} else if($_GET['action'] == 'regestration'){
 		$sql = "select * from client where Mail='".$_GET['login']."';";
 		$response = pg_fetch_all(pg_query($link, $sql));
@@ -46,5 +48,4 @@
 		echo json_encode($response);
 		return;
 	}
-	//echo json_encode($result[0]);
 ?>
