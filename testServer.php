@@ -19,7 +19,7 @@
 			$sql = "select MAX(id) from client;";
 			$response = pg_fetch_all(pg_query($link, $sql));
 			$responce += 1;
-			$sql = "insert into client values('".$response."', '".$_GET['name']."', '".$_GET['surname']."', '".$_GET['dateOfBirth']."', '".$_GET['login']."', '', '".$_GET['password']."', '', 1000);";
+			$sql = "insert into client values(".$response.", '".$_GET['name']."', '".$_GET['surname']."', '".$_GET['dateOfBirth']."', '".$_GET['login']."', '', '".$_GET['password']."', '', 1000);";
 			$response = pg_query($link, $sql);
 			if(!$response){
 				echo '{"status":"0"}';
